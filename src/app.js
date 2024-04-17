@@ -3,6 +3,7 @@ const routes = require('./routes/mainRoutes');
 const auth = require('./routes/authRoutes')
 const bodyParser = require('body-parser');
 const connectToMongo = require('../config/database')
+const session = require('../config/session.config')
 // Crear una instancia de Express
 const app = express();
 const hbs = require("hbs");

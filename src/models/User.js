@@ -25,15 +25,16 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 8,
     validate: {
-      validator: function(value) {
-        // Validar la seguridad del password
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
+      validator: (value) => {
+        // Utiliza una expresión regular para asegurar que la contraseña tenga al menos 8 caracteres
+        // y contenga al menos una letra mayúscula, una minúscula, un número y un carácter especial
+        return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}$/.test(value);
       },
-      message: 'El password no cumple con los requisitos de seguridad'
+      message: 'La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una minúscula, un número y un carácter especial'
     }
   },
+  
   avatarUrl: {
     type: String,
     default: 'images/default-avatar.png'

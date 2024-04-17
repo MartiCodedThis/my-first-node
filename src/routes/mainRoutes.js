@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 const router = express.Router();
 // Definir una ruta principal
 router.get('/', (req, res) => {
-  res.send('¡Hola, mundo!');
+  res.render('user');
 });
 
 router.get('/user', userController.showMain)

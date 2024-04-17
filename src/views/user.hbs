@@ -7,7 +7,14 @@
     <title>Perfil de Usuario</title>
 </head>
 <body>
-    <h1>Perfil de Usuario</h1>
-    <p>{{usuario.userData}}</p>
+    {{#if existingUser}}
+    <h2>Welcome, {{ existingUser.username }}!</h2>
+    <p>This is your profile page my friend!</p>
+    <button>
+    <a href="/home">Reload the page</a>
+    </button>
+    {{else}}
+    <p>Still no logged in user, sorry!</p>
+    {{/if}}
 </body>
 </html>
